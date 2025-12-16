@@ -194,11 +194,6 @@ export const TaskCard: React.FC<TaskCardProps> = ({ task, isDragging = false }) 
       <TaskHeader>
         <div style={{ flex: 1 }}>
           <TaskTitle>{task.title}</TaskTitle>
-          {isOverdue && (
-            <Badge $type="overdue">
-              ⚠️ {daysOverdue} dia{daysOverdue > 1 ? 's' : ''} de atraso
-            </Badge>
-          )}
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
           <EditButton onClick={() => openTaskForm(task)} title="Editar tarefa">
@@ -211,13 +206,18 @@ export const TaskCard: React.FC<TaskCardProps> = ({ task, isDragging = false }) 
         </div>
       </TaskHeader>
       
-      <TaskDescription>
+      <TaskDescription>     
         {task.description.length > 100 
           ? `${task.description.substring(0, 100)}...` 
           : task.description}
       </TaskDescription>
       
-      <TaskMeta>
+      <TaskMeta>   
+        {isOverdue && (
+          <Badge $type="overdue">
+            ⚠️ {daysOverdue} dia{daysOverdue > 1 ? 's' : ''} de atraso
+          </Badge>
+        )}
         <Badge $type="responsible">
           👤 {task.responsible.name}
         </Badge>

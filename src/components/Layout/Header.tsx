@@ -14,7 +14,7 @@ const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 2rem;
+  padding: 0 1rem;
   z-index: 1000;
 
   @media (max-width: 768px) {
@@ -149,6 +149,53 @@ const AddButton = styled.button`
   }
 `;
 
+const LogoutButton = styled.button`
+  background: ${({ theme }) => theme.colors.text.disabled};
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.2s;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.text.secondary};
+  }
+
+  @media (max-width: 768px) {
+    .label {
+      display: none;
+    }
+    /* Square icon-only button on mobile */
+    padding: 0;
+    width: 36px;
+    height: 36px;
+    gap: 0;
+    border-radius: 6px;
+    justify-content: center;
+
+    .icon {
+      font-size: 1.25rem;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+    }
+  }
+`;
+
+const handleLogout = () => {
+  if (window.confirm('Deseja sair do sistema?')) {
+    window.location.href = '/';
+  }
+};
+
 interface HeaderProps {
   onMenuClick: () => void;
   currentView: 'kanban' | 'dashboard';
@@ -193,6 +240,12 @@ export const Header: React.FC<HeaderProps> = ({
           <span className="icon">+</span>
           <span className="label">Nova Tarefa</span>
         </AddButton>
+
+        <LogoutButton onClick={handleLogout}>
+          <span className="icon">🚪</span>
+          <span className="label">Sair</span>
+        </LogoutButton>
+
       </RightSection>
     </HeaderContainer>
   );
