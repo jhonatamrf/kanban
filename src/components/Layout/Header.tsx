@@ -2,6 +2,7 @@
 import React from 'react';
 import { useTaskForm } from '../../context/TaskFormContext';
 import styled from 'styled-components';
+import { Icon } from '../UI/Icon';
 
 const HeaderContainer = styled.header`
   position: fixed;
@@ -62,7 +63,7 @@ const Logo = styled.div`
 
   .logo {
     background: ${({ theme }) => theme.colors.primary.main};
-    border-radius: 5px
+    border-radius: 5px;
   }
 
   .label {
@@ -73,7 +74,7 @@ const Logo = styled.div`
   }
 
   @media (max-width: 768px) {
-    .label { display: none; }
+    display: none;
   }
 `;
 
@@ -131,8 +132,8 @@ const AddButton = styled.button`
     }
     /* Square icon-only button on mobile */
     padding: 0;
-    width: 36px;
-    height: 36px;
+    width: 35px;
+    height: 35px;
     gap: 0;
     border-radius: 6px;
     justify-content: center;
@@ -150,8 +151,8 @@ const AddButton = styled.button`
 `;
 
 const LogoutButton = styled.button`
-  background: ${({ theme }) => theme.colors.text.disabled};
-  color: white;
+  // background: ${({ theme }) => theme.colors.text.disabled};
+  color: dark;
   border: none;
   border-radius: 8px;
   padding: 0.5rem 1rem;
@@ -163,7 +164,7 @@ const LogoutButton = styled.button`
   transition: background 0.2s;
 
   &:hover {
-    background: ${({ theme }) => theme.colors.text.secondary};
+    background: ${({ theme }) => theme.colors.text.disabled};
   }
 
   @media (max-width: 768px) {
@@ -172,8 +173,8 @@ const LogoutButton = styled.button`
     }
     /* Square icon-only button on mobile */
     padding: 0;
-    width: 36px;
-    height: 36px;
+    width: 35px;
+    height: 35px;
     gap: 0;
     border-radius: 6px;
     justify-content: center;
@@ -226,23 +227,25 @@ export const Header: React.FC<HeaderProps> = ({
             $active={currentView === 'kanban'}
             onClick={() => onViewChange('kanban')}
           >
-            📋 Kanban
+            <Icon name="kanban" /> 
+            Kanban
           </ViewButton>
           <ViewButton
             $active={currentView === 'dashboard'}
             onClick={() => onViewChange('dashboard')}
           >
-            📊 Dashboard
+            <Icon name="dashboard" />
+            Dashboard
           </ViewButton>
         </ViewToggle>
 
         <AddButton onClick={() => openTaskForm()}>
-          <span className="icon">+</span>
+          <span className="icon"><Icon name="add" /></span>
           <span className="label">Nova Tarefa</span>
         </AddButton>
 
         <LogoutButton onClick={handleLogout}>
-          <span className="icon">🚪</span>
+          <span className="icon"><Icon name="logout" /></span>
           <span className="label">Sair</span>
         </LogoutButton>
 

@@ -6,6 +6,7 @@ import { Task, TaskStatus } from '../../types/task';
 import { formatDate, calculateDaysOverdue } from '../../utils/taskUtils';
 import { useTaskForm } from '../../context/TaskFormContext';
 import styled from 'styled-components';
+import { Icon } from '../UI/Icon';
 
 const STATUS_COLOR: Record<TaskStatus, string> = {
   todo: '#3B82F6',
@@ -197,10 +198,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({ task, isDragging = false }) 
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
           <EditButton onClick={() => openTaskForm(task)} title="Editar tarefa">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
+          <Icon name="edit" />
         </EditButton>
           <DragHandle {...attributes} {...listeners} />
         </div>
@@ -215,20 +213,21 @@ export const TaskCard: React.FC<TaskCardProps> = ({ task, isDragging = false }) 
       <TaskMeta>   
         {isOverdue && (
           <Badge $type="overdue">
-            ⚠️ {daysOverdue} dia{daysOverdue > 1 ? 's' : ''} de atraso
+            <Icon name="warning" /> 
+            {daysOverdue} dia{daysOverdue > 1 ? 's' : ''} de atraso
           </Badge>
         )}
         <Badge $type="responsible">
-          👤 {task.responsible.name}
+          <Icon name="user" /> {task.responsible.name}
         </Badge>
         
         <Badge $type="date">
-          📅 Vence: {formatDate(task.dueDate)}
+          <Icon name="calendar" /> Vence: {formatDate(task.dueDate)}
         </Badge>
         
         {task.completedAt && (
           <Badge $type="completed">
-            ✅ Concluída: {formatDate(task.completedAt)}
+            <Icon name="check" /> Concluída: {formatDate(task.completedAt)}
           </Badge>
         )}
         

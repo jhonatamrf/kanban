@@ -21,6 +21,7 @@ import { Column } from './Column';
 import { TaskCard } from './TaskCard';
 import { Task } from '../../types/task';
 import styled from 'styled-components';
+import { Icon } from '../UI/Icon';
 
 const BoardContainer = styled.div`
   display: grid;

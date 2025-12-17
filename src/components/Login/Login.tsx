@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import styled from 'styled-components';
+import { Icon } from '../UI/Icon';
 
 const LoginContainer = styled.div`
   display: flex;
@@ -59,8 +60,8 @@ const Logo = styled.div`
   span {
     background: white;
     color: ${({ theme }) => theme.colors.primary.main};
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -240,7 +241,7 @@ const LinkButton = styled.a`
 
 const FeatureList = styled.div`
   max-width: 500px;
-  margin-top: 3rem;
+  // margin-top: 3rem;
 `;
 
 const FeatureItem = styled.div`
@@ -383,7 +384,7 @@ const handleSubmit = async (e: React.FormEvent) => {
         <WelcomeText>
           <WelcomeTitle>
             <Logo>
-                <span>K</span>
+                <span>KB</span>
                 Kanban Board
             </Logo>            
           </WelcomeTitle>
@@ -394,7 +395,9 @@ const handleSubmit = async (e: React.FormEvent) => {
         
         <FeatureList>
           <FeatureItem>
-            <FeatureIcon>📋</FeatureIcon>
+            <FeatureIcon>
+              <Icon name="kanban" />
+            </FeatureIcon>
             <FeatureContent>
               <FeatureTitle>Quadro Kanban Intuitivo</FeatureTitle>
               <FeatureDescription>
@@ -404,7 +407,9 @@ const handleSubmit = async (e: React.FormEvent) => {
           </FeatureItem>
           
           <FeatureItem>
-            <FeatureIcon>📊</FeatureIcon>
+            <FeatureIcon>
+              <Icon name="dashboard" />
+            </FeatureIcon>
             <FeatureContent>
               <FeatureTitle>Dashboard em Tempo Real</FeatureTitle>
               <FeatureDescription>
@@ -414,7 +419,9 @@ const handleSubmit = async (e: React.FormEvent) => {
           </FeatureItem>
           
           <FeatureItem>
-            <FeatureIcon>👥</FeatureIcon>
+            <FeatureIcon>
+              <Icon name="users" />
+            </FeatureIcon>
             <FeatureContent>
               <FeatureTitle>Colaboração em Equipe</FeatureTitle>
               <FeatureDescription>
@@ -424,7 +431,9 @@ const handleSubmit = async (e: React.FormEvent) => {
           </FeatureItem>
           
           <FeatureItem>
-            <FeatureIcon>📱</FeatureIcon>
+            <FeatureIcon>
+              <Icon name="mobile" />
+            </FeatureIcon>
             <FeatureContent>
               <FeatureTitle>Totalmente Responsivo</FeatureTitle>
               <FeatureDescription>
@@ -446,7 +455,10 @@ const handleSubmit = async (e: React.FormEvent) => {
           </div>
 
           <InputGroup>
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="email">
+              <Icon name="email" style={{ marginRight: '0.5rem' }} />
+              Email
+            </Label>
             <Input
               id="email"
               type="email"
@@ -461,7 +473,10 @@ const handleSubmit = async (e: React.FormEvent) => {
           </InputGroup>
 
           <InputGroup>
-            <Label htmlFor="password">Senha</Label>
+            <Label htmlFor="password">
+              <Icon name="lock" style={{ marginRight: '0.5rem' }} />
+              Senha
+            </Label>
             <Input
               id="password"
               type="password"
@@ -497,7 +512,7 @@ const handleSubmit = async (e: React.FormEvent) => {
               color: '#EF4444',
               fontSize: '0.875rem',
             }}>
-              ⚠️ {error}
+              <Icon name="warning" /> {error}
             </div>
           )}
 
@@ -525,7 +540,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 
           <LinkText>
             <LinkButton onClick={() => alert('Funcionalidade de recuperação de senha em desenvolvimento')}>
-              🔒 Esqueceu sua senha?
+              <Icon name="lock" style={{ marginRight: '0.25rem' }} /> Esqueceu sua senha?
             </LinkButton>
           </LinkText>
 
@@ -548,7 +563,10 @@ const handleSubmit = async (e: React.FormEvent) => {
           maxWidth: '400px',
           textAlign: 'center'
         }}>
-          <strong>Credenciais de demonstração:</strong><br />
+          <strong>
+            <Icon name="key" style={{ marginRight: '0.25rem' }} />
+            Credenciais de demonstração:
+          </strong><br />
           Admin: admin@kanban.com / 123456<br />
           Usuário: user@kanban.com / 123456
         </div>

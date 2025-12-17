@@ -1,6 +1,7 @@
 // src/components/Layout/Sidebar.tsx
 import React from 'react';
 import styled from 'styled-components';
+import { Icon } from '../UI/Icon';
 
 const SidebarContainer = styled.aside<{ $isOpen: boolean }>`
   position: fixed;
@@ -162,7 +163,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             $isOpen={isOpen}
             onClick={() => handleViewClick('kanban')}
           >
-            <span className="icon">📋</span>
+            <span className="icon"><Icon name="kanban" /></span>
             <span className="label">Quadro Kanban</span>
           </MenuItem>
           <MenuItem 
@@ -170,8 +171,24 @@ export const Sidebar: React.FC<SidebarProps> = ({
             $isOpen={isOpen}
             onClick={() => handleViewClick('dashboard')}
           >
-            <span className="icon">📊</span>
+            <span className="icon"><Icon name="dashboard" /></span>
             <span className="label">Dashboard</span>
+          </MenuItem>
+        </Section>
+
+        <Section>
+          <SectionTitle $isOpen={isOpen}>{isOpen ? 'Filtros Rápidos' : 'Filtros'}</SectionTitle>
+          <MenuItem $active={false} $isOpen={isOpen} onClick={handleCloseIfMobile}>
+            <span className="icon"><Icon name="calendar" /></span>
+            <span className="label">Hoje</span>
+          </MenuItem>
+          <MenuItem $active={false} $isOpen={isOpen} onClick={handleCloseIfMobile}>
+            <span className="icon"><Icon name="warning" /></span>
+            <span className="label">Atrasadas</span>
+          </MenuItem>
+          <MenuItem $active={false} $isOpen={isOpen} onClick={handleCloseIfMobile}>
+            <span className="icon"><Icon name="user" /></span>
+            <span className="label">Minhas Tarefas</span>
           </MenuItem>
         </Section>
 
@@ -183,22 +200,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
               <span className="count">{item.count}</span>
             </StatusItem>
           ))}
-        </Section>
-
-        <Section>
-          <SectionTitle $isOpen={isOpen}>{isOpen ? 'Filtros Rápidos' : 'Filtros'}</SectionTitle>
-          <MenuItem $active={false} $isOpen={isOpen} onClick={handleCloseIfMobile}>
-            <span className="icon">📅</span>
-            <span className="label">Hoje</span>
-          </MenuItem>
-          <MenuItem $active={false} $isOpen={isOpen} onClick={handleCloseIfMobile}>
-            <span className="icon">⚠️</span>
-            <span className="label">Atrasadas</span>
-          </MenuItem>
-          <MenuItem $active={false} $isOpen={isOpen} onClick={handleCloseIfMobile}>
-            <span className="icon">👤</span>
-            <span className="label">Minhas Tarefas</span>
-          </MenuItem>
         </Section>
       </SidebarContainer>
 

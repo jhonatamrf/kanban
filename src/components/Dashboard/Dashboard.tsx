@@ -5,6 +5,7 @@ import { StatCard } from './StatCard';
 import { ChartComponent } from './ChartComponent';
 import { calculateCompletionRate, calculateAverageCompletionTime } from '../../utils/indicators';
 import styled from 'styled-components';
+import { Icon } from '../UI/Icon';
 
 const DashboardContainer = styled.div`
   padding: 2rem;
@@ -98,7 +99,7 @@ export const Dashboard: React.FC = () => {
             value={totalTasks.toString()}
             subtitle="Todas as colunas"
             change="+12% vs último mês"
-            icon="📊"
+            iconName="dashboard"
             color="#4F46E5"
             positiveChange={true}
           />
@@ -108,7 +109,7 @@ export const Dashboard: React.FC = () => {
             value={`${completionPercentage}%`}
             subtitle={`${tasks.filter(t => t.status === 'completed').length} de ${totalTasks}`}
             change={`${completionRate.today}% concluídas hoje`}
-            icon="✅"
+            iconName="check"
             color="#10B981"
             positiveChange={true}
           />
@@ -118,7 +119,7 @@ export const Dashboard: React.FC = () => {
             value={`${averageCompletionTime}d`}
             subtitle="Até conclusão"
             change="-2 dias vs semana passada"
-            icon="⏱️"
+            iconName="clock"
             color="#F59E0B"
             positiveChange={true}
           />
@@ -128,7 +129,7 @@ export const Dashboard: React.FC = () => {
             value={overdueTasks.toString()}
             subtitle="Precisam de atenção"
             change={overdueTasks > 0 ? "+3 vs ontem" : "Nenhum atraso"}
-            icon="⚠️"
+            iconName="warning"
             color="#EF4444"
             positiveChange={overdueTasks === 0}
           />

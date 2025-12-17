@@ -1,6 +1,7 @@
 // src/components/Dashboard/StatCard.tsx
 import React from 'react';
 import styled from 'styled-components';
+import { Icon } from '../UI/Icon';
 
 const CardContainer = styled.div`
   background: ${({ theme }) => theme.colors.background.paper};
@@ -82,7 +83,7 @@ interface StatCardProps {
   value: string;
   subtitle?: string;
   change?: string;
-  icon?: string;
+  iconName?: string;
   color?: string;
   positiveChange?: boolean;
 }
@@ -92,7 +93,7 @@ export const StatCard: React.FC<StatCardProps> = ({
   value,
   subtitle,
   change,
-  icon = '📊',
+  iconName = 'chartBar',
   color = '#4F46E5',
   positiveChange = true,
 }) => {
@@ -102,7 +103,7 @@ export const StatCard: React.FC<StatCardProps> = ({
     <CardContainer>
       <CardHeader>
         <IconContainer $color={color}>
-          {icon}
+          <Icon name={iconName as any} />
         </IconContainer>
       </CardHeader>
       
@@ -114,9 +115,7 @@ export const StatCard: React.FC<StatCardProps> = ({
       
       {change && (
         <ChangeIndicator $positive={positiveChange}>
-          <TrendIcon $positive={positiveChange}>
-            {getTrendIcon()}
-          </TrendIcon>
+          <Icon name={positiveChange ? 'arrowUp' : 'arrowDown'} />
           {change}
         </ChangeIndicator>
       )}
