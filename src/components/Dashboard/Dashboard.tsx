@@ -146,23 +146,23 @@ export const Dashboard: React.FC = () => {
             data={tasksByStatus}
           />
           
-          <ChartComponent
+          {/* <ChartComponent
             title="Conclusões por Dia da Semana"
             type="bar"
             data={completionByDay}
-          />
-        </ChartsGrid>
+          /> */}
+       {/*  </ChartsGrid>
       </Section>
 
       <Section>
-        <SectionTitle>Desempenho por Responsável</SectionTitle>
+        {/* <SectionTitle>Desempenho por Responsável</SectionTitle> */}
         
-        <ChartsGrid>
-          <ChartComponent
+        {/* <<ChartsGrid>
+          ChartComponent
             title="Tarefas por Responsável"
             type="bar"
             data={tasksByResponsible}
-          />
+          /> */}
           
           <div style={{
             background: '#fff',

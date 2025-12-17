@@ -27,7 +27,7 @@ const ChartTitle = styled.h3`
 
 const ChartContent = styled.div`
   height: 300px;
-  display: flex;
+  // display: flex;
   align-items: flex-end;
   justify-content: space-between;
   padding: 1rem 0;
@@ -104,9 +104,9 @@ const PieChartVisual = styled.div`
 const Legend = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.5rem;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 `;
 
 const LegendItem = styled.div`
