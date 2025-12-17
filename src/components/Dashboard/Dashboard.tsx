@@ -98,7 +98,7 @@ export const Dashboard: React.FC = () => {
             title="Total de Tarefas"
             value={totalTasks.toString()}
             subtitle="Todas as colunas"
-            change="+12% vs último mês"
+            change="+12% último mês"
             iconName="dashboard"
             color="#4F46E5"
             positiveChange={true}
@@ -118,7 +118,7 @@ export const Dashboard: React.FC = () => {
             title="Tempo Médio"
             value={`${averageCompletionTime}d`}
             subtitle="Até conclusão"
-            change="-2 dias vs semana passada"
+            change="-2 dias semana passada"
             iconName="clock"
             color="#F59E0B"
             positiveChange={true}
@@ -128,7 +128,7 @@ export const Dashboard: React.FC = () => {
             title="Em Atraso"
             value={overdueTasks.toString()}
             subtitle="Precisam de atenção"
-            change={overdueTasks > 0 ? "+3 vs ontem" : "Nenhum atraso"}
+            change={overdueTasks > 0 ? "+3 ontem" : "Nenhum atraso"}
             iconName="warning"
             color="#EF4444"
             positiveChange={overdueTasks === 0}

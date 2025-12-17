@@ -5,6 +5,7 @@ import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable'
 import { Column as ColumnType, Task } from '../../types/task';
 import { TaskCard } from './TaskCard';
 import styled from 'styled-components';
+import { Icon } from '../UI/Icon';
 
 // Utility to choose readable text color based on background
 const getContrastingColor = (hex: string) => {
@@ -111,6 +112,12 @@ const EmptyState = styled.div`
   border: 2px dashed ${({ theme }) => theme.colors.border};
 `;
 
+const WarningIcon = styled.span`
+  margin-left: 4px;
+  display: inline-flex;
+  align-items: center;
+`;
+
 interface ColumnProps {
   column: ColumnType;
   tasks: Task[];
@@ -141,7 +148,11 @@ export const Column: React.FC<ColumnProps> = ({ column, tasks }) => {
           {column.wipLimit && (
             <WipLimit $exceeded={isWipExceeded} $inHeader={!!column.color}>
               WIP: {tasks.length}/{column.wipLimit}
-              {isWipExceeded && ' ⚠️'}
+              {isWipExceeded && (
+                <WarningIcon>
+                  <Icon name="warning" />
+                </WarningIcon>
+              )}
             </WipLimit>
           )}
         </HeaderLeft>

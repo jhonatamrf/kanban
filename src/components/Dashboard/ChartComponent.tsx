@@ -93,10 +93,10 @@ const PieChartVisual = styled.div`
   height: 200px;
   border-radius: 50%;
   background: conic-gradient(
-    ${({ theme }) => theme.colors.primary.main} 0% 35%,
-    ${({ theme }) => theme.colors.secondary.main} 35% 50%,
-    ${({ theme }) => theme.colors.warning} 50% 75%,
-    ${({ theme }) => theme.colors.error} 75% 100%
+    ${({ theme }) => theme.colors.primary.main} 0% 37.5%,
+    ${({ theme }) => theme.colors.secondary.main} 37.5% 62.5%,
+    ${({ theme }) => theme.colors.warning} 62.5% 87.5%,
+    ${({ theme }) => theme.colors.error} 87.5% 100%
   );
   margin-bottom: 1rem;
 `;

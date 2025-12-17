@@ -134,9 +134,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
   currentView,
 }) => {
   const statusItems = [
-    { id: 'todo', label: 'A Fazer', color: '#3B82F6', count: 1 },
-    { id: 'in_progress', label: 'Em Progresso', color: '#F59E0B', count: 1 },
-    { id: 'overdue', label: 'Atrasado', color: '#EF4444', count: 4 },
+    { id: 'todo', label: 'A Fazer', color: '#3B82F6', count: 3 },
+    { id: 'in_progress', label: 'Em Progresso', color: '#F59E0B', count: 2 },
+    { id: 'overdue', label: 'Atrasado', color: '#EF4444', count: 1 },
     { id: 'completed', label: 'Concluído', color: '#10B981', count: 2 },
   ];
 
