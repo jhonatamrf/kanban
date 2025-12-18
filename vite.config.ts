@@ -10,5 +10,10 @@ export default defineConfig({
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx']
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './vitest.setup.ts'
   }
 })
